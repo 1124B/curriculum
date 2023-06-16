@@ -24,11 +24,11 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a href="{{ url('/') }}" img src="logo.png">
                     ランシュcomp
                 </a>
                 <div>
-                @if(Auth::check())
+                <!-- @if(Auth::check())
                     <span class="my-navbar-item">{{ Auth::user()->name }}</span>
                     /
                     <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
@@ -45,7 +45,7 @@
                     <a class="my-navbar-item" href="{{ route ('login') }}">ログイン</a>
                     /
                     <a class="my-navbar-item" href="{{ route('register') }}">会員登録</a>
-                @endif
+                @endif -->
                 </div>
             </div>
         </nav>

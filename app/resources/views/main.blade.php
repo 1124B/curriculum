@@ -1,5 +1,4 @@
 @extends('layouts.layout')
-
 @section('content')
     <main class="py-4">
         <div class="row justify-content-around mt-3">
@@ -11,4 +10,7 @@
             </a>
         </div>
     </main>
+    <div id="page_top" class="show">
+        <a href="#">ページ上部へ</a>
+    </div>
 @endsection
