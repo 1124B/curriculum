@@ -24,30 +24,13 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a href="{{ url('/') }}" img src="logo.png">
-                    ランシュcomp
+                <a href="{{ url('/') }}">
+                    <img src="{{ asset('image/logo.png') }}" alt="">
                 </a>
-                <div>
-                <!-- @if(Auth::check())
-                    <span class="my-navbar-item">{{ Auth::user()->name }}</span>
-                    /
-                    <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="post" style="display: none;">
-                    @csrf
-                    </form> 
-                    <script>
-                        document.getElementById('logout').addEventListener('click', function(event) {
-                        event.preventDefault();
-                        document.getElementById('logout-form').submit();
-                        });
-                    </script>
-                @else
-                    <a class="my-navbar-item" href="{{ route ('login') }}">ログイン</a>
-                    /
-                    <a class="my-navbar-item" href="{{ route('register') }}">会員登録</a>
-                @endif -->
-                </div>
             </div>
+             <a href="">
+                ログイン/新規登録
+            </a>
         </nav>
         @yield('content')
     </div>

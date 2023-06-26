@@ -1,6 +1,8 @@
 # docker-composeのバージョン指定
 version: '3.8'
-
+volumes:
+  vendor-store:
+  node_modules-store:
 # コンテナ群の記述
 services:
   # nginxというサービス
@@ -36,6 +38,7 @@ services:
     volumes:
     - ./app:/var/www/html
     - ./docker/php/check_startup.sh:/tmp/check_startup.sh
+    - vendor-store:/docker-env/app/vendor
     # サーバーに対してオープンするポートを指定
     expose:
       - "9000"
@@ -69,3 +72,5 @@ services:
       - 4040:80
     volumes:
       - ./phpmyadmin/sessions:/sessions
+
+  
