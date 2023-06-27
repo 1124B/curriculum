@@ -25,8 +25,5 @@
                 <button type="button" class="btn btn-secondary">条件削除</button>
             </a>
         </div>
-        <div id="page_top" class="show">
-            <a href="#">ページ上部へ</a>
-        </div>
     </main>
 @endsection
