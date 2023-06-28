@@ -17,7 +17,7 @@
                 </ul>
             </div>
         </div>
-        <div class="row justify-content-center mt-5">
+        <div class="row justify-content-center mt-3">
             <a href="">
                 <button type="button" class="btn btn-primary">検索</button>
             </a>
@@ -25,7 +25,7 @@
                 <button type="button" class="btn btn-secondary">条件削除</button>
             </a>
         </div>
-        <div id="page_top" class="show">
+        <div id="page_top" class="show text-right mr-5">
             <a href="#">ページ上部へ</a>
         </div>
     </main>

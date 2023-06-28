@@ -28,9 +28,11 @@
                     <img src="{{ asset('image/logo.png') }}" alt="">
                 </a>
             </div>
-             <a href="">
-                ログイン/新規登録
-            </a>
+            <div class="mr-3">
+                <a href="">
+                    ログイン/新規登録
+                </a>
+            </div>
         </nav>
         @yield('content')
     </div>

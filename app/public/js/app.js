@@ -1,4 +1,4 @@
-require('./bootstrap');
+require('../../resources/js/bootstrap');
 
 //ページトップ
 var px_change =1;
