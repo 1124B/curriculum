@@ -3,7 +3,7 @@
     <main class="py-4">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="card mt-5">
+                <div class="card mt-3">
                     <div class="card-header text-center">シューズレビュー投稿</div>
                     <div class="card-body">
                         <div class="form-group">
@@ -34,27 +34,36 @@
                             <label for="photo">写真選択（5枚まで）</label>
                             <input type="file" id="file" class="form-control-file">
                         </div>
-                        <div class="row justify-content-around mt-3">
-                            <div class="form-group col-xs-2">
-                                <label for="email">使用距離</label>
-                                <input type="text" class="form-control" id="distance" name="distance" value="" size="3">  
+                        <div class="col-xs-1 d-flex flex-row justify-content-around mt-3">
+                            <div class="form-group">
+                                <label for="distance">使用距離</label>
+                                <div class="d-flex flex-row align-items-end">
+                                    <input type="text" class="form-control" id="distance" name="distance" value="" size="3">
+                                    <span>km</span>
+                                </div> 
                             </div>  
-                            <div class="form-group col-xs-2">
-                                <label for="email">使用サイズ</label>
-                                <input type="text" class="form-control" id="size" name="size" value="" size="3">
+                            <div class="form-group">
+                                <label for="size">使用サイズ</label>
+                                <div class="d-flex flex-row align-items-end">
+                                    <input type="text" class="form-control" id="size" name="size" value="" size="3">
+                                    <span>cm</span>
+                                </div> 
                             </div>  
-                            <div class="form-group col-xs-2">
-                                <label for="email">重量</label>
-                                <input type="text" class="form-control" id="weight" name="weight" value="" size="3">
+                            <div class="form-group">
+                                <label for="weight">重量</label>
+                                <div class="d-flex flex-row align-items-end">
+                                    <input type="text" class="form-control" id="weight" name="weight" value="" size="3">
+                                    <span>g</span>
+                                </div> 
                             </div>
                         </div>  
                         <div class="form-group">
-                            <label for="email">レビュー</label>
+                            <label for="review">レビュー</label>
                             <textarea id="textarea1" class="form-control" name="review" value=""></textarea>
                         </div>  
                         <div class="row justify-content-center mt-3">
                             <a href="">
-                                <button type="submit" class="btn btn-primary">マイページに戻る</button>
+                                <button type="submit" class="btn btn-secondary">マイページに戻る</button>
                             </a>
                             <a href="" class="ml-5">
                                 <button type="submit" class="btn btn-primary">確認する</button>
