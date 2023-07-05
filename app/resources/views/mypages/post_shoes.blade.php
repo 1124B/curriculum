@@ -7,7 +7,7 @@
                     <div class="card-header text-center">シューズレビュー投稿</div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="email">タイトル</label>
+                            <label for="title">タイトル</label>
                             <input type="text" class="form-control" id="title" name="title" value="">
                         </div>
                         <div class="justify-content-start mt-3">                        
