@@ -1,6 +1,11 @@
 @extends('layouts.layout')
 @section('content')
-    <main class="py-4">            
+    <main class="py-4">
+        <div class="container">
+            <div class="d-flex flex-row align-items-center justify-content-center mt-3">
+                <i class="bi bi-star"></i>           
+                <label for="review">星平均</label>
+            </div>            
             <div class="row justify-content-center">
                 <div class="card mt-3">
                     <div class="card-body">
@@ -45,5 +50,6 @@
                     </div>
                 </div>       
             </div>
+        </div>    
     </main>
 @endsection

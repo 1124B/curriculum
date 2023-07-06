@@ -4,6 +4,6 @@ use App\Http\Controllers\ResourceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/',function(){
-    return view('posts.post_detail');
+    return view('owners.post_list');
 });
 ?>
