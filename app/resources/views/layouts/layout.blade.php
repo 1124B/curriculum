@@ -29,7 +29,7 @@
                 </a>
             </div>
             <div class="mr-3">
-                <a href="">
+                <a href="{{ route('login') }}">
                     ログイン/新規登録
                 </a>
             </div>
