@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
+    public function getLogin()
+    {
+        return view('auth.login');
+    }
     /*
     |--------------------------------------------------------------------------
     | Login Controller

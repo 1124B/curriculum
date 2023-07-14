@@ -8,6 +8,10 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller
 {
+    public function getReset()
+    {
+        return view('passwords.pwd_reset');
+    }
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller

@@ -7,7 +7,8 @@
                     <nav class="card mt-5">
                         <div class="card-header text-center">ログイン</div>
                         <div class="card-body">
-                            <form action="" method="">
+                            <form action="" method="POST">
+                            @csrf
                                 <div class="form-group">
                                     <label for="email">メールアドレス</label>
                                     <input type="text" class="form-control" id="email" name="email" value="">
@@ -17,7 +18,7 @@
                                     <input type="text" class="form-control" id="password" name="password" value="">
                                 </div>
                                 <div class="text-right">
-                                    <a href="">※パスワードをお忘れの方はこちら</a>
+                                    <a href="{{ route('passwords.pwd_reset') }}">※パスワードをお忘れの方はこちら</a>
                                 </div>
                                 <div class="text-center mt-5">
                                     <button type="submit" class="btn btn-primary">ログイン</button>
@@ -27,7 +28,9 @@
                     </nav>
                     <div class="d-flex flex-column text-center mt-5">
                         <label for="email">新規会員登録</label>
-                        <button type="submit" class="btn btn-secondary">新規会員登録</button>
+                        <a href="{{ route('logins.signup') }}">
+                            <button type="submit" class="btn btn-secondary">新規会員登録</button>
+                        </a>
                     </div>
                 </div>
             </div>

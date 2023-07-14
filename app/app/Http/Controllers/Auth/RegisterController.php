@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateDeta;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -11,6 +12,35 @@ use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
+    public function getSignup()
+    {
+        return view('logins.signup');
+    }
+    public function postSignconf(CreateDeta $request){
+        $id = $request['id'];
+        $name = $request['name'];
+        $email = $request['email'];
+        $password = $request['password'];
+        return view('logins.signup_conf',[
+            'id' => $id,
+            'name' => $name,
+            'email' => $email,
+            'password' => $password,
+        ]);
+    }
+    public function postSigncomp(CreateDeta $request)
+    {
+        $user = new User([
+            'id' => $request->input('id'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password'  => bcrypt($request->input('name')),
+        ]);
+
+        $user->save();
+
+        return view('logins.signup_comp');
+    }
     /*
     |--------------------------------------------------------------------------
     | Register Controller
