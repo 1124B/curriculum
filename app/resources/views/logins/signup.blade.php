@@ -7,7 +7,7 @@
                     <nav class="card mt-5">
                         <div class="card-header text-center">新規登録</div>
                         <div class="card-body">
-                            <form action="{{ route('logins.signup_conf') }}" method="POST">
+                            <form action="{{ route('user.register_confirm') }}" method="POST">
                                 <div class="form-group">
                                 @csrf
                                     <label for="id">ユーザーID</label>

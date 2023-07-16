@@ -28,7 +28,7 @@
                     </nav>
                     <div class="d-flex flex-column text-center mt-5">
                         <label for="email">新規会員登録</label>
-                        <a href="{{ route('logins.signup') }}">
+                        <a href="{{ route('user.register_show') }}">
                             <button type="submit" class="btn btn-secondary">新規会員登録</button>
                         </a>
                     </div>

@@ -5,26 +5,35 @@
             <div class="row justify-content-center">
                 <div class="mt-5">
                     <h6 class="card-title">新規登録内容確認</h6>
-                    <form action="{{ route('logins.signup_comp') }}" method="POST">
-                        <div class="form-group mt-5">
+                    <form action="{{ route('user.register_complete') }}" method="POST">
                         @csrf
+                        <div class="form-group mt-5">                        
                             <label for="user">ユーザーID</label>
-                            <p>{{ $id }}</p>
+                            {{ $input["id"] }}
+                            <input class="form-control" type="hidden" id="id" name="id" required value="{{ $input["id"] }}">
                         </div>
                         <div class="form-group mt-5">
                             <label for="name">ユーザー名</label>
-                            <p>{{ $name }}</p>
+                            {{ $input["name"] }}
+                            <input class="form-control" type="hidden" id="name" name="name" required value="{{ $input["name"] }}">
                         </div>
                         <div class="form-group mt-5">
                             <label for="email">メールアドレス</label>
-                            <p>{{ $email }}</p>
+                            {{ $input["email"] }}
+                            <input class="form-control" type="hidden" id="email" name="email" required value="{{ $input["email"] }}">
                         </div>
                         <div class="form-group mt-5">
                             <label for="password">パスワード</label>
-                            <p>{{ $password }}</p>
+                            {{ $input["password"] }}
+                            <input class="form-control" type="hidden" id="password" name="password" required value="{{ $input["password"] }}">
                         </div>
-                        <div class="text-center mt-5">
-                            <button type="submit" class="btn btn-primary">登録</button>                        
+                        <div class="row justify-content-center mt-5">
+                            <div class="text-center">
+                                <button type="submit" name="back" class="btn btn-secondary">変更</button>                        
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">登録</button>                        
+                            </div>
                         </div>
                     </form>
                 </div>
