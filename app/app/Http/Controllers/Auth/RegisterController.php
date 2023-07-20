@@ -17,7 +17,7 @@ class RegisterController extends Controller
     private $form_confirm = 'Auth\RegisterController@confirm';
     private $form_complete = 'Auth\RegisterController@complete';
 
-    private $formItems = ["id", "name", "email", "password"];
+    private $formItems = ["user_id", "name", "email", "password"];
 
     use RegistersUsers;
 
@@ -26,16 +26,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'id' => ['required','string','min:4','unique:users'],
-            'name' => ['required','string','min:4','unique:users'],
+            'user_id' => ['required','string','min:4','max:20','unique:users'],
+            'name' => ['required','string','min:4','max:20','unique:users'],
             'email' => ['required','string','email','unique:users'],
-            'password' => ['required','string','min:4'],
+            'password' => ['required','string','min:4','max:16'],
         ]);
     }
     protected function create(array $data)
     {
         return User::create([
-            'id' => $data['id'],
+            'user_id' => $data['user_id'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -45,39 +45,33 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         $input = $request->only($this->formItems);
-        $request->session()->only($this->formItems);
-        return redirect()->action($this->form_confirm);
-    }
-    public function register(Request $request)
-    {
-        $input = $request->session()->get("form_input");
-        if($request->has("back")){
-            return redirect()->action($this->form_show)->withInput($input);
-        }
         if(!$input){
-            return redirect()->action($this->form_show);
+            return redirect()->route("user.register_confirm");
         }
-        $this->validator($request->all())->validate();
-        event(new Registered($user = $this->create($request->all())));
-        $request->session()->forget("form_input");
-    }
-    function registered(Request $request, $user)
-    {
-        return redirect()->action($this->form_complete);
-    }
+        return view('logins.signup_conf', ["input" => $input]);
+    }    
     public function showRegistrationForm()
     {
         return view('logins.signup');
     }
     public function confirm(Request $request)
-    {
-        $input = $request->session()->get("form_input");
-        if(!$input){
-            return redirect()->action("Auth\RegisterController");
+    {        
+        $action = $request->get('action', 'edit');
+        $input = $request->except('action');
+
+        if($request->edit){
+            return redirect()->action('Auth\RegisterController@post')->withInput($input);
+        } else{
+        $user = new User();
+        $user->user_id = $request->user_id;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->save();
+        return redirect()->route('user.register_complete');
         }
-        return view('logins.signup_conf', ["input" => $input]);
     }
-    public function complete()
+    public function complete(Request $request)
     {
         return view('logins.signup_comp');
     }
