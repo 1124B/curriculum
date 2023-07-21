@@ -11,10 +11,9 @@ Route::get('/',function(){
     return view('main');
 });
 
-Route::get('/login',[
-    'uses' => 'Auth\LoginController@getLogin',
-    'as' => 'auth.login',
-]);
+Route::get('/login','Auth\LoginController@getLogin')->name('user.login');
+Route::post('/login', 'Auth\LoginController@login');
+Route::get('/logout','Auth\LoginController@logout')->middleware('login');
 
 Route::get('/signup','Auth\RegisterController@showRegistrationForm')->name('user.register_show');
 Route::post('/signup', 'Auth\RegisterController@post')->name('user.register_post');
