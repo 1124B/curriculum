@@ -3,20 +3,19 @@
     <main class="py-4">
         <!-- エラーメッセージ -->
         @if (isset($login_error))
-            <div id="error_explanation" class="text-danger">
+            <div id="error_explanation" class="text-danger text-center">
                 <ul>
                     <li>メールアドレスまたはパスワードが一致しません。</li>
                 </ul>
             </div>
         @endif
-        <p></p>
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col col-md-offset-3 col-md-6">
-                    <nav class="card mt-5">
+                    <nav class="card mt-3">
                         <div class="card-header text-center">ログイン</div>
                         <div class="card-body">
-                            <form action="{{ url('auth.login') }}" method="POST">
+                            <form action="{{ route('user.login') }}" method="POST">
                             @csrf
                                 <div class="form-group">
                                     <label for="user_email">{{ trans('validation.attributes.email') }}</label>

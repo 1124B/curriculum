@@ -29,15 +29,17 @@ class LoginController extends Controller
         }
 
         if(Hash::check($request->password,$user[0]->password)){
-
+                
             session(['name' => $user[0]->name]);
-            session(['email' => $user[0]->name]);
+            session(['email' => $user[0]->email]);
 
             session()->flash('flash_flg',1);
             session()->flash('flash_msg','ログインしました。');
+            
+            return redirect(url('/'));
 
         }else{
-            return view('login',['login_error' => '1']);
+            return view('auth.login',['login_error' => '1']);
         }
     }
 
@@ -46,6 +48,10 @@ class LoginController extends Controller
         session()->forget('name');
         session()->forget('email');
         return redirect(url('/'));
+    }
+    public function username()
+    {
+        return 'email';
     }
     /*
     |--------------------------------------------------------------------------
