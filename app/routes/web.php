@@ -13,15 +13,12 @@ Route::get('/',function(){
 
 Route::get('/login','Auth\LoginController@getLogin')->name('user.getlogin');
 Route::post('/login', 'Auth\LoginController@login')->name('user.login');
-Route::get('/logout','Auth\LoginController@logout')->middleware('login');
+Route::get('/logout','Auth\LoginController@getLogout')->name('user.getlogout');
 
 Route::get('/signup','Auth\RegisterController@showRegistrationForm')->name('user.register_show');
 Route::post('/signup', 'Auth\RegisterController@post')->name('user.register_post');
 Route::post('/signup_conf','Auth\RegisterController@confirm')->name('user.register_confirm');
 Route::get('/signup_comp','Auth\RegisterController@complete')->name('user.register_complete');
 
-Route::get('/pwd_reset',[
-    'uses' => 'Auth\ResetPasswordController@getReset',
-    'as' => 'passwords.pwd_reset',
-]);
+Route::get('/pwd_reset','Auth\ResetPasswordController@getReset')->name('passwords.pwd_reset');
 ?>

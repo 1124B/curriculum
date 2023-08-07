@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -24,35 +25,34 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $user = User::where('email', $request->email)->get();
+        
         if(count($user) === 0){
+            
             return view('login',['login_error' => '1']);
         }
-
-        if(Hash::check($request->password,$user[0]->password)){
-                
+        if($request->password === $user[0]->password){
+        
             session(['name' => $user[0]->name]);
             session(['email' => $user[0]->email]);
-
+            
             session()->flash('flash_flg',1);
             session()->flash('flash_msg','ログインしました。');
             
-            return redirect(url('/'));
-
+            return view('main', [
+                "email" => $user[0]->email,
+                "name" => $user[0]->name,
+                ]);
         }else{
             return view('auth.login',['login_error' => '1']);
-        }
+        }        
     }
 
-    public function logout(Request $request)
+    public function getLogout(Request $request)
     {
-        session()->forget('name');
-        session()->forget('email');
+        $request->session()->flush();
         return redirect(url('/'));
     }
-    public function username()
-    {
-        return 'email';
-    }
+
     /*
     |--------------------------------------------------------------------------
     | Login Controller

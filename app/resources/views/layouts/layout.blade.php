@@ -29,9 +29,24 @@
                 </a>
             </div>
             <div class="mr-3">
-                <a href="{{ route('user.getlogin') }}">
-                    ログイン/新規登録
-                </a>
+                @if(isset($email))
+                    <span class="my-navbar-item">{{ $name }}</span>
+                    /
+                    <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
+                    <form id="logout-form" action="{{ route('user.getlogout') }}" method="GET" style="display: none;">
+                    @csrf
+                    </form>
+                    <script>
+                        document.getElementById('logout').addEventListener('click', function(event){
+                        event.preventDefault();
+                        document.getElementById('logout-form').submit();
+                        });
+                    </script>
+                @else
+                    <a href="{{ route('user.getlogin') }}">
+                        ログイン/新規登録
+                    </a>
+                @endif
             </div>
         </nav>
         @yield('content')
