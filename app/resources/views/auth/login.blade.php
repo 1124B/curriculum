@@ -26,7 +26,7 @@
                                     <input type="password" class="form-control" id="user_password" name="password" value="{{ old('password') }}">
                                 </div>
                                 <div class="text-right">
-                                    <a href="{{ route('passwords.pwd_reset') }}">※パスワードをお忘れの方はこちら</a>
+                                    <a href="{{ route('password_reset.email.form') }}">※パスワードをお忘れの方はこちら</a>
                                 </div>
                                 <div class="text-center mt-5">
                                     <button type="submit" value="ログインする" class="btn btn-primary">ログイン</button>
