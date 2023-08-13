@@ -14,4 +14,12 @@ interface UserTokenRepositoryInterface
      * @return UserToken
      */
     public function updateOrCreateUserToken(int $userId): UserToken;
+
+    /**
+     * トークンからUserTokenのレコードを１件取得
+     * 
+     * @param string $token
+     * @return UserToken
+     */
+    public function getUserTokenfromToken(string $token): UserToken;
 }
