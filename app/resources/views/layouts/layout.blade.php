@@ -30,7 +30,7 @@
             </div>
             <div class="mr-3">
                 @if(isset($email))
-                    <span class="my-navbar-item">{{ $name }}</span>
+                    <span class="my-navbar-item"><a href="{{ route('user.mypage') }}">{{ $name }}</a></span>
                     /
                     <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
                     <form id="logout-form" action="{{ route('user.getlogout') }}" method="GET" style="display: none;">

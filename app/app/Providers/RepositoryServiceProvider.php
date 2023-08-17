@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\UserRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -23,12 +25,16 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        foreach ($this->models as $model) {
-            $this->app->bind(
-                "App\Repositories\Interfaces\\{$model}RepositoryInterface",
-                "App\Repositories\Eloquents\\{$model}Repository"
-            );
-        }
+        $this->app->bind(
+            UserRepositoryInterface::class,
+            UserRepository::class            
+        );
+        // foreach ($this->models as $model) {
+        //     $this->app->bind(
+        //         "App\Repositories\Interfaces\\{$model}RepositoryInterface",
+        //         "App\Repositories\\{$model}Repository"
+        //     );
+        // }
     }
 
     /**

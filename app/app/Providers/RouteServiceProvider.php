@@ -30,9 +30,19 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
 
-        parent::boot();
+        $this->routes(function () {
+        Route::middleware('web')
+            ->namespace($this->namespace) // <- This line must be inserted
+            ->group(base_path('routes/web.php'));
+
+        Route::prefix('api')
+            ->middleware('api')
+            ->namespace($this->namespace)  // <- This line must be inserted
+            ->group(base_path('routes/api.php'));
+        });
+
+        // parent::boot();
     }
 
     /**

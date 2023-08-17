@@ -21,13 +21,12 @@ Route::post('/signup', 'Auth\RegisterController@post')->name('user.register_post
 Route::post('/signup_conf','Auth\RegisterController@confirm')->name('user.register_confirm');
 Route::get('/signup_comp','Auth\RegisterController@complete')->name('user.register_complete');
 
-Route::get('/pwd_reset','Auth\ResetPasswordController@getReset')->name('passwords.pwd_reset');
 Route::prefix('password_reset')->name('password_reset.')->group(function () {
     Route::prefix('email')->name('email.')->group(function () {
         // パスワードリセットメール送信フォームページ
-        Route::get('/', [ResetPasswordController::class, 'emailFormResetPassword'])->name('form');
+        Route::get('/email_form', 'Auth\ResetPasswordController@emailFormResetPassword')->name('form');
         // メール送信処理
-        Route::post('/', [ResetPasswordController::class, 'sendEmailResetPassword'])->name('send');
+        Route::post('/email_form', 'Auth\ResetPasswordController@sendEmailResetPassword')->name('send');
         // メール送信完了ページ
         Route::get('/send_complete', [ResetPasswordController::class, 'sendComplete'])->name('send_complete');
     });
@@ -39,4 +38,6 @@ Route::prefix('password_reset')->name('password_reset.')->group(function () {
     Route::get('/edited', [ResetPasswordController::class, 'edited'])->name('edited');
 });
 
+Route::get('/mypage','MypageController@UserIndex')->name('user.mypage');
+Route::post('/user_edit','MypageController@UserEdit');
 ?>

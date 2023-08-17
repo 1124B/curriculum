@@ -6,7 +6,7 @@
                 <div class="mt-5">
                         <h6 class="text-center">新規登録完了しました。</h6>
                         <div class="text-center mt-5">
-                            <a href="{{ route('auth.login') }}">
+                            <a href="{{ route('user.getlogin') }}">
                                 <button type="button" class="btn btn-primary">ログイン画面へ</button>
                             </a>
                         </div>

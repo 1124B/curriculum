@@ -6,6 +6,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="user">ユーザー名</label>
+                        <span class=""></span>
                     </div>
                     <div class="w-100">
                         <div class="col-6 col-md-6">
