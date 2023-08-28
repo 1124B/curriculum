@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories\Eloquents;
+namespace App\Repositories;
 
 use App\UserToken;
 use App\Repositories\Interfaces\UserTokenRepositoryInterface;

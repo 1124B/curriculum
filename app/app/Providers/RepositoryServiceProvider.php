@@ -5,18 +5,12 @@ namespace App\Providers;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\UserRepository;
+use App\Repositories\Interfaces\UserTokenRepositoryInterface;
+use App\Repositories\UserTokenRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
-    /**
-     * Binding of models
-     * 
-     * @var array
-     */
-    private $models = [
-        'User',
-        'UserToken'
-    ];
+    
 
     /**
      * Register services.
@@ -29,12 +23,10 @@ class RepositoryServiceProvider extends ServiceProvider
             UserRepositoryInterface::class,
             UserRepository::class            
         );
-        // foreach ($this->models as $model) {
-        //     $this->app->bind(
-        //         "App\Repositories\Interfaces\\{$model}RepositoryInterface",
-        //         "App\Repositories\\{$model}Repository"
-        //     );
-        // }
+        $this->app->bind(
+            UserTokenRepositoryInterface::class,
+            UserTokenRepository::class            
+        );
     }
 
     /**

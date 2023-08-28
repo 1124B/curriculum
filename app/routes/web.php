@@ -24,9 +24,9 @@ Route::get('/signup_comp','Auth\RegisterController@complete')->name('user.regist
 Route::prefix('password_reset')->name('password_reset.')->group(function () {
     Route::prefix('email')->name('email.')->group(function () {
         // パスワードリセットメール送信フォームページ
-        Route::get('/email_form', 'Auth\ResetPasswordController@emailFormResetPassword')->name('form');
+        Route::get('/', [ResetPasswordController::class, 'emailFormResetPassword'])->name('form');
         // メール送信処理
-        Route::post('/email_form', 'Auth\ResetPasswordController@sendEmailResetPassword')->name('send');
+        Route::post('/', [ResetPasswordController::class, 'sendEmailResetPassword'])->name('send');
         // メール送信完了ページ
         Route::get('/send_complete', [ResetPasswordController::class, 'sendComplete'])->name('send_complete');
     });
