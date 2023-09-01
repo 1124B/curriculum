@@ -5,8 +5,8 @@
             <div class="row justify-content-center">
                 <div class="mt-5">
                         <h6 class="text-center">パスワードリセットメール送信完了</h6>
-                        <div>
-                            <h3>パスワードリセットメールを送信しました。</h3>
+                        <div class="mt-5">
+                            <h5>パスワードリセットメールを送信しました。</h5>
                         </div>
                         <div class="text-center mt-5">
                             <a href="{{ route('user.getlogin') }}">

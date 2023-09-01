@@ -8,9 +8,9 @@
                     <form method="POST" action="{{ route('password_reset.update') }}">
                         @csrf
                         <input type="hidden" name="reset_token" value="{{ $userToken->token }}">
-                        <div class="input-group">
+                        <div class="input-group d-flex justify-content-between mt-3">
                             <label for="password" class="label">パスワード</label>
-                            <input type="password" name="password" class="input {{ $errors->has('password') ? 'incorrect' : '' }}">
+                            <input type="password" name="password" class="input {{ $errors->has('password') ? 'incorrect' : '' }} ml-3">
                             @error('password')
                                 <div class="error">{{ $message }}</div>
                             @enderror
@@ -18,11 +18,13 @@
                                 <div class="error">{{ $message }}</div>
                             @enderror
                         </div>
-                        <div class="input-group">
-                            <label for="password_confirmation" class="label">パスワードを再入力</label>
-                            <input type="password" name="password_confirmation" class="input {{ $errors->has('password_confirmation') ? 'incorrect' : '' }}">
+                        <div class="input-group d-flex justify-content-between mt-3">
+                            <label for="password_confirmation" class="label">パスワード再入力</label>
+                            <input type="password" name="password_confirmation" class="input {{ $errors->has('password_confirmation') ? 'incorrect' : '' }} ml-3">
                         </div>
-                        <button type="submit">パスワードを再設定</button>
+                        <div class="text-center mt-3">
+                            <button type="submit" class="btn btn-primary">パスワード再設定</button>
+                        </div>
                     </form>
                 </div>
             </div>

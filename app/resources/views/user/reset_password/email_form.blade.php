@@ -16,7 +16,7 @@
                                 @enderror
                             </div>
                             <div class="row justify-content-center mt-5">
-                                <button type="button" class="btn btn-primary">メール送信</button>                            
+                                <button type="submit" class="btn btn-primary">メール送信</button>                            
                         </form>        
                                 <a href="{{ route('user.getlogin') }}" class="ml-5">
                                     <button type="button" class="btn btn-secondary">戻る</button>

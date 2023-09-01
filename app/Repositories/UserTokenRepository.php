@@ -35,7 +35,7 @@ class UserTokenRepository implements UserTokenRepositoryInterface
         ],
         [
             'token' => uniqid(rand(), $hashedToken),
-            'expire_at' => $now->addHours(48)->toDateTimeString(),
+            'expire_at' => $now->addHours(24)->toDateTimeString(),
         ]);
     }
 

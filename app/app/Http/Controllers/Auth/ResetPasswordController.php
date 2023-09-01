@@ -55,7 +55,7 @@ class ResetPasswordController extends Controller
             Log::info(__METHOD__ . '...ID:' . $user->id . 'のユーザーにパスワード再設定用メールを送信しました。');
         } catch(Exception $e) {
             Log::error(__METHOD__ . '...ユーザーへのパスワード再設定用メール送信に失敗しました。 request_email = ' . $request->email . ' error_message = ' . $e);
-            return redirect()->route('user.password_reset.email_form')
+            return redirect()->route('password_reset.email.form')
                 ->with('flash_message', '処理に失敗しました。時間をおいて再度お試しください。');
         }
         // メール送信完了画面への不正アクセスを防ぐためのセッションキー
@@ -77,7 +77,7 @@ class ResetPasswordController extends Controller
                 ->with('flash_message', '不正なリクエストです。');
         }
 
-        return view('passwords.reset_password.send_complete');
+        return view('user.reset_password.send_complete');
     }
 
     /**
@@ -118,7 +118,7 @@ class ResetPasswordController extends Controller
             Log::info(__METHOD__ . '...ID:' . $userToken->user_id . 'のユーザーのパスワードを更新しました。');
         } catch (Exception $e) {
             Log::error(__METHOD__ . '...ユーザーのパスワードの更新に失敗しました。...error_message = ' . $e);
-            return redirect()->route('password_reset.email_form')
+            return redirect()->route('password_reset.email.form')
                 ->with('flash_message', __('処理に失敗しました。時間をおいて再度お試しください。'));
         }
         // パスワードリセット完了画面への不正アクセスを防ぐためのセッションキー
