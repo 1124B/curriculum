@@ -66,7 +66,7 @@ class RegisterController extends Controller
         $user->user_id = $request->user_id;
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = Hash::make($request->password);
         $user->save();
         return redirect()->route('user.register_complete');
         }

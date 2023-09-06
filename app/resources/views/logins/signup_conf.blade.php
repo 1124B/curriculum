@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group mt-5">
                             <label for="password">パスワード：</label>
-                            {{ $input['password'] }}
+                            ****
                             <input class="form-control" type="hidden" id="password" name="password" required value="{{ $input['password'] }}">
                         </div>
                         <div class="row justify-content-center mt-5">

@@ -30,7 +30,8 @@ class LoginController extends Controller
             
             return view('login',['login_error' => '1']);
         }
-        if($request->password === $user[0]->password){
+        // dd(Hash::make($request->password), $user[0]->password, Hash::check(Hash::make($request->password) , $user[0]->password));
+        if(Hash::check($request->password , $user[0]->password)){
         
             session(['name' => $user[0]->name]);
             session(['email' => $user[0]->email]);
