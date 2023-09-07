@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a href="{{ url('/') }}">
+                <a href="{{ route('main') }}">
                     <img src="{{ asset('image/logo.png') }}" alt="">
                 </a>
             </div>

@@ -39,5 +39,7 @@ Route::prefix('password_reset')->name('password_reset.')->group(function () {
 });
 
 Route::get('/mypage','MypageController@UserIndex')->name('user.mypage');
+Route::get('/', 'MypageController@UserMain')->name('main');
+
 Route::post('/user_edit','MypageController@UserEdit');
 ?>

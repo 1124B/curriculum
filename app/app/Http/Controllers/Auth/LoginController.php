@@ -30,7 +30,6 @@ class LoginController extends Controller
             
             return view('login',['login_error' => '1']);
         }
-        // dd(Hash::make($request->password), $user[0]->password, Hash::check(Hash::make($request->password) , $user[0]->password));
         if(Hash::check($request->password , $user[0]->password)){
         
             session(['name' => $user[0]->name]);
@@ -39,6 +38,8 @@ class LoginController extends Controller
             session()->flash('flash_flg',1);
             session()->flash('flash_msg','ログインしました。');
             
+            session()->put('str', $user[0]->email);
+            session()->put('str1', $user[0]->name);
             return view('main', [
                 "email" => $user[0]->email,
                 "name" => $user[0]->name,
