@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\User;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class RegisterController extends Controller
     private $form_confirm = 'Auth\RegisterController@confirm';
     private $form_complete = 'Auth\RegisterController@complete';
 
-    private $formItems = ["user_id", "name", "email", "password"];
+    private $formItems = ["nickname", "name", "email", "password"];
 
     use RegistersUsers;
 
@@ -26,7 +26,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'user_id' => ['required','string','min:4','max:20','unique:users'],
+            'nickname' => ['required','string','min:4','max:20','unique:users'],
             'name' => ['required','string','min:4','max:20','unique:users'],
             'email' => ['required','string','email','unique:users'],
             'password' => ['required','string','min:4','max:16'],
@@ -35,7 +35,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'user_id' => $data['user_id'],
+            'nickname' => $data['nickname'],
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
@@ -63,7 +63,7 @@ class RegisterController extends Controller
             return redirect()->action('Auth\RegisterController@post')->withInput($input);
         } else{
         $user = new User();
-        $user->user_id = $request->user_id;
+        $user->nickname = $request->input('nickname');
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
@@ -125,7 +125,7 @@ class RegisterController extends Controller
     //  * Create a new user instance after a valid registration.
     //  *
     //  * @param  array  $data
-    //  * @return \App\User
+    //  * @return \App\Models\User
     //  */
     // protected function create(array $data)
     // {

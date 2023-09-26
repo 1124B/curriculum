@@ -10,19 +10,19 @@ use Illuminate\Support\Facades\Auth;
 class MypageController extends Controller
 {
     public function UserIndex(){
-        $email = session()->get('str');
-        $name = session()->get('str1');
+        $nickname = session()->get('str');
+        $email = session()->get('str1');
         return view('mypages.mypage',[
+            'name' => $nickname,
             'email' => $email,
-            'name' => $name,
         ]);
     }
     public function UserMain(){
-        $email = session()->get('str');
-        $name = session()->get('str1');
+        $nickname = session()->get('str');
+        $email = session()->get('str1');
         return view('main',[
+            'name' => $nickname,
             'email' => $email,
-            'name' => $name,
         ]);
     }
 }

@@ -8,9 +8,9 @@
                     <form action="{{ route('user.register_confirm') }}" method="POST">
                         @csrf
                         <div class="form-group mt-5">                        
-                            <label for="user">ユーザーID：</label>
-                            {{ $input['user_id'] }}
-                            <input class="form-control" type="hidden" id="user_id" name="user_id" required value="{{ $input['user_id'] }}">
+                            <label for="user">ニックネーム：</label>
+                            {{ $input['nickname'] }}
+                            <input class="form-control" type="hidden" id="nickname" name="nickname" required value="{{ $input['nickname'] }}">
                         </div>
                         <div class="form-group mt-5">
                             <label for="name">ユーザー名：</label>

@@ -1,10 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 
-class ResourceController extends Controller
+use App\Models\User;
+use App\Models\Post; 
+
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,7 +25,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        //
+        return view("mypages.post_shoes");
     }
 
     /**

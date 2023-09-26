@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 // use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -32,17 +32,17 @@ class LoginController extends Controller
         }
         if(Hash::check($request->password , $user[0]->password)){
         
-            session(['name' => $user[0]->name]);
+            session(['nickname' => $user[0]->nickname]);
             session(['email' => $user[0]->email]);
             
             session()->flash('flash_flg',1);
             session()->flash('flash_msg','ログインしました。');
             
-            session()->put('str', $user[0]->email);
-            session()->put('str1', $user[0]->name);
+            session()->put('str', $user[0]->nickname);
+            session()->put('str1', $user[0]->email);
             return view('main', [
+                "nickname" => $user[0]->nickname,
                 "email" => $user[0]->email,
-                "name" => $user[0]->name,
                 ]);
         }else{
             return view('auth.login',['login_error' => '1']);

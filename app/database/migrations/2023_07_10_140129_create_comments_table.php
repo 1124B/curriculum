@@ -18,7 +18,6 @@ class CreateCommentsTable extends Migration
             $table->integer('user_id')->unique();
             $table->integer('post_id')->unique();
             $table->string('text', '1000');
-            $table->integer('comment_id')->unique();
             $table->timestamps();
         });
     }

@@ -10,8 +10,8 @@
                             <form action="{{ route('user.register_post') }}" method="POST">
                                 @csrf
                                 <div class="form-group">                                
-                                    <label for="user_id">ユーザーID</label>
-                                    <input type="text" class="form-control" id="user_id" name="user_id" required value="{{ old('user_id') }}">
+                                    <label for="nickname">ニックネーム</label>
+                                    <input type="text" class="form-control" id="nickname" name="nickname" required value="{{ old('nickname') }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="name">ユーザー名</label>
