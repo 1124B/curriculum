@@ -18,11 +18,11 @@
             </div>
         </div>
         <div class="row justify-content-center mt-5">
-            <a href="">
-                <button type="button" class="btn btn-primary">検索</button>
+            <a href="{{ route('posts.index') }}">
+                <button type="submit" class="btn btn-primary">検索</button>
             </a>
             <a href="" class="ml-5">
-                <button type="button" class="btn btn-secondary">条件削除</button>
+                <button type="submit" class="btn btn-secondary">条件削除</button>
             </a>
         </div>
     </main>

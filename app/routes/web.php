@@ -1,12 +1,13 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PostController;
 
 Route::get('/',function(){
     return view('main');
@@ -38,8 +39,12 @@ Route::prefix('password_reset')->name('password_reset.')->group(function () {
     Route::get('/edited', [ResetPasswordController::class, 'edited'])->name('edited');
 });
 
+Route::get('/post/{id}', [PostController::class, 'show'])->name('posts.show');
+Route::resource('posts', PostController::class)->only(['show']);
+Route::resource('posts', PostController::class);
+Route::resource('posts', PostController::class)->except(['index']);
+
 Route::get('/mypage','MypageController@UserIndex')->name('user.mypage');
 Route::get('/', 'MypageController@UserMain')->name('main');
-
 Route::post('/user_edit','MypageController@UserEdit');
 ?>

@@ -26,7 +26,7 @@ class PostFactory extends Factory
             'brand_shoe' => $this->faker->word,
             'usage' => $this->faker->word,
             'size' => $this->faker->numberBetween(20, 30),
-            'weight' => $this->faker->numberBetween(20, 30),
+            'weight' => $this->faker->numberBetween(100, 400),
             'review' => $this->faker->realText(),
             'created_at' => now(),
             'updated_at' => now(),
