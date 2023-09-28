@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Requests\PostRequest;
-
 use App\Models\User;
-use App\Models\Post; 
+use Illuminate\Http\Request;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
-        return view('post', compact('posts'));
+        $users = User::all();
+        return view('user.index', compact('users'));
     }
 
     /**
@@ -29,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("mypages.post_shoes");
+        return view('user.create');
     }
 
     /**
@@ -49,9 +45,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($id)
     {
-        return view('posts.show', compact('post'));
+        //
     }
 
     /**
