@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 
 Route::get('/',function(){
     return view('main');
@@ -37,10 +38,7 @@ Route::prefix('password_reset')->name('password_reset.')->group(function () {
     Route::get('/edited', [ResetPasswordController::class, 'edited'])->name('edited');
 });
 
-Route::get('/post/{id}', [PostController::class, 'show'])->name('posts.show');
-Route::resource('posts', PostController::class)->only(['show']);
-Route::resource('posts', PostController::class);
-Route::resource('posts', PostController::class)->except(['index']);
+Route::resource('posts', 'PostController');
 
 Route::get('/mypage','MypageController@UserIndex')->name('user.mypage');
 Route::get('/', 'MypageController@UserMain')->name('main');

@@ -25,6 +25,25 @@
                 <button type="submit" class="btn btn-secondary">条件削除</button>
             </a>
         </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    @foreach ($posts as $post)
+                        <div class="card">
+                            <div class="card-header p-3 w-100 d-flex">
+                                <img src="" width="50" height="50">
+                                <div class="ml-2 d-flex flex-colummn">
+                                    <p class="mb-0">{{ $post->title }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="my-4 d-flex justify-content-center">
+                {{ $posts->links() }}
+            </div>
+        </div>
         <div id="page_top" class="show text-right mr-5">
             <a href="#">ページ上部へ</a>
         </div>

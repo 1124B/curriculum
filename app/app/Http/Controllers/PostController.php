@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 
-use App\Models\User;
-use App\Models\Post; 
+use App\User;
+use App\Post; 
 
 class PostController extends Controller
 {
@@ -19,7 +20,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('post', compact('posts'));
+        return view('posts.post', compact('posts'));
     }
 
     /**

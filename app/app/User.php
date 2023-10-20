@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,7 +15,7 @@ class User extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','name', 'email','password','image','profile','rol','del_flg'
+        'nickname','name', 'email','password','image','profile','rol','del_flg'
     ];
 
     /**
@@ -37,6 +37,6 @@ class User extends Model
     ];
 
     public function post() {
-        return $this->hasMany('App\Models\post');
+        return $this->hasMany('App\post');
     }
 }

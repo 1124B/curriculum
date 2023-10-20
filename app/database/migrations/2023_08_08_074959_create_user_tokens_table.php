@@ -18,7 +18,7 @@ class CreateUserTokensTable extends Migration
             $table->id()->comment('ID');
             $table->foreignID('user_id')->constrained()->comment('ユーザーのID');
             $table->string('token')->unique()->comment('トークン');
-            $table->dateTime('expiere_at')->nullable()->comment('トークンの有効期限');
+            $table->dateTime('expire_at')->nullable()->comment('トークンの有効期限');
             $table->timestamps();
         });
 
